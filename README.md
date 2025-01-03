@@ -34,11 +34,11 @@
 1. Open phpMyAdmin: Go to http://localhost/phpmyadmin in your web browser
 2. Create a New Database:
    - In phpMyAdmin, click on Databases at the top
-   - Name the database `auth_localstorage_db` and click Create
+   - Name the database `loginregister` and click Create
 
 ### Step 6: Set up Database Schema and Tables
 1. Create the users table:
-   - In phpMyAdmin, select the `auth_localstorage_db` database
+   - In phpMyAdmin, select the `loginregister` database
    - Click on the SQL tab and paste the following query:
    ```sql
    CREATE TABLE users (
@@ -68,12 +68,12 @@
 ### Step 9: Configure Backend API
 1. In the backend folder, configure the database credentials in config.js or .env:
    ```javascript
-   module.exports = {
-       DB_HOST: 'localhost',
-       DB_USER: 'root',
-       DB_PASSWORD: '',
-       DB_NAME: 'auth_localstorage_db'
-   };
+const pool = mysql.createPool({
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'loginregister'
+});
    ```
 
 ### Step 10: Start the Backend Server
